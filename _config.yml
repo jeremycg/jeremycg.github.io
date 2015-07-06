@@ -1,0 +1,13 @@
+# Site settings
+title: Jeremy's Website
+baseurl: ""
+url: "http://localhost:4000/"
+twitter_username: jeremycgray
+github_username:  jeremycg
+stackoverflow_link: users/3760920/jeremycg
+stackoverflow_name: jeremycg
+owner_email: jeremycgray@gmail.com
+linkedin: jeremycgray
+
+# Build settings
+markdown: kramdown
