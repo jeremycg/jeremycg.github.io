@@ -6,6 +6,7 @@ tags:
  - datascience
  - kaggle
  - R
+comments: true
 ---
 
 This is (more or less) the code that got me my best answer. After reading through a couple of other peoples code, I should have looked more carefully at the time variables, and figured out times etc. Given I got 0.92341 compared to the winners 0.94254, it's not super important, but it is the small differences that matter.

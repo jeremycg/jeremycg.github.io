@@ -6,6 +6,7 @@ tags:
  - datascience
  - kaggle
  - R
+comments: true
 ---
 
   This is the first post of an occasional series on R, data science, Kaggle and my quest to make it through the book "The elements of statistical learning".

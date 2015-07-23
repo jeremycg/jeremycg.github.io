@@ -6,6 +6,7 @@ tags:
  - datascience
  - kaggle
  - R
+comments: true
 ---
 
 Here’s a link to the [final standings](https://www.kaggle.com/c/facebook-recruiting-iv-human-or-bot/leaderboard/private).
