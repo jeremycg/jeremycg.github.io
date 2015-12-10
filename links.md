@@ -15,9 +15,9 @@ permalink: /links/
 
 <br>
 
-[Asher Cutter’s Lab at University of Toronto](http://labs.eeb.utoronto.ca/cutter/index.htm)
+[Asher Cutters' Lab at University of Toronto](http://labs.eeb.utoronto.ca/cutter/index.htm)
 
-[Mat Goddard’s Lab at University of Auckland](http://goddardlab.auckland.ac.nz/)
+[Mat Goddards' Lab at University of Auckland](http://goddardlab.auckland.ac.nz/)
 
 <br>
 
