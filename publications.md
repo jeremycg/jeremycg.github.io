@@ -5,8 +5,20 @@ permalink: /Publications/
 ---
 
 
-![](/assets/wordcloud.png)
 
+
+
+Cutter AD, **Gray JC**. Ephemeral ecological speciation and the latitudinal biodiversity gradient. **Evolution** 2016;70(10):2171–2185. doi: 10.1111/evo.13030. [PDF](/assets/Cutter-Gray_2016_Evolution.pdf)
+
+
+Bilotta GS, Burnside NG, **Gray JC**, Orr HG. The Effects of Run-of-River Hydroelectric Power Schemes on Fish Community Composition in Temperate Streams and Rivers. **PLoS One**. 2016; 11(5): e0154271. [PDF](/assets/Bilotta-et-al-1.pdf)
+
+
+Jovelin R, Krizus A, Taghizada B, **Gray JC**, Phillips PC, Claycomb JM, Cutter AD. Comparative genomic analysis of upstream miRNA regulatory motifs in *Caenorhabditis*. **RNA**. 2016;22(7):968-78. doi: 10.1261/rna.055392.115. [PDF](/assets/Jovelin_RNA_2016.pdf)
+
+
+Vielle A, Callemeyn-Torre N, Gimond C, Poullet N, **Gray JC**, Cutter AD, Braendle C. Convergent evolution of sperm gigantism and the developmental origins of sperm size variability in *Caenorhabditis* nematodes. **Evolution**. 2016;70(11):2485-2503. doi: 10.1111/evo.13043
+  [bioRxiv](http://www.biorxiv.org/content/early/2016/04/26/050252) [PDF](/assets/Vielle-et-al.pdf)
 
 **Gray JC**, Cutter AD. Mainstreaming *Caenorhabditis elegans* in experimental evolution. **Proceedings of the Royal Society B: Biological Sciences**. 2014;281(1778) doi:10.1098/rspb.2013.3055 [Journal](http://rspb.royalsocietypublishing.org/content/281/1778/20133055) [PDF](/assets/Gray-and-Cutter.pdf)
 

@@ -6,15 +6,24 @@ permalink: /Jeremy-Gray/
 
 ![](/assets/Jeremy.jpg)
 
-Postdoctoral Fellow, University of Toronto
-
+Senior Data Scientist, at Precima Inc.
 <jeremycgray@gmail.com>
 
-I am broadly interested in the genetics of speciation and diversification, as well as experimental evolution, as well as biostatistics and bioinformatics.
+Currently I am working as a senior data Scientist, working on constructing tools
+for the members of our team. Primarily I am interested in creating and optimizing
+statistical modeling software and APIs, as well as migrating existing code into the
+ amazon ecosystem.
 
-I am also interested in data science, reproducible research tools, data analytics and R.
+I am experienced in designing and instructing courses and lessons in statistics, programming
+and statistical programming.
 
-I am currently working in Asher Cutter’s lab as a Post Doc on the genetics of speciation in Caenorhabditis.
+Major technologies: Python (pandas, numpy, scipy, sklearn), SQL (RedShift, Netezza), Bash, AWS/EC2, git, R.
+
+
+Currently learning Spark, Scala, TensorFlow.
+
+In my previous work, I trained as a ecological geneticist, and I retain interest in
+statistical analysis of ecological data, bioinformatics and experimental design/analysis.
 
 [CV](/assets/cv.pdf)
 
