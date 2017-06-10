@@ -6,6 +6,7 @@ permalink: /Publications/
 
 
 
+Bilotta GS, Burnside NG, Turley MD, **Gray JC**, Orr HG. The effects of run-of-river hydroelectric power schemes on invertebrate community composition in temperate streams and rivers. **PLoS One**. 2017; 12(2): e0171634. [PDF](/assets/Bilotta-et-al-2.pdf)
 
 
 Cutter AD, **Gray JC**. Ephemeral ecological speciation and the latitudinal biodiversity gradient. **Evolution** 2016;70(10):2171–2185. doi: 10.1111/evo.13030. [PDF](/assets/Cutter-Gray_2016_Evolution.pdf)
