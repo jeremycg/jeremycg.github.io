@@ -1,0 +1,116 @@
+---
+output:
+  word_document: default
+  pdf_document:
+    fig_caption: yes
+---
+#Tourism Outlook for Lake Tekapo
+
+##Purpose
+
+Lake Tekapo residents have claimed that the Christchurch earthquakes have resulted in a downturn for the local economy due to reduced tourist numbers and a loss of visitors from Christchurch Airport. Local business leaders plan to lobby the minister upon his arrival in Lake Tekapo. The purpose of this note is to address these claims with data from tourism surveys.
+
+##Key Findings
+
+* Tourist visits to Lake Tekapo show a steady increase over time regardless of the earthquakes (Figure 1). 
+* Visitors to Lake Tekapo arrive from both Christchurch Airport and Auckland Airport with approximately equal frequency, both before and after the quakes (Table 1).
+* Lake Tekapo is growing its tourist market faster than the national average (Figure 2).
+
+```{r libraryload, echo=FALSE, warning=FALSE, message=FALSE}
+options(scipen = 4, digits = 9)
+library(data.table)
+library(dplyr)
+library(ggplot2)
+library(ggthemes)
+library(zoo)
+library(knitr)
+library(scales)
+```
+
+```{r dataload, echo=FALSE, warning=FALSE, message=FALSE}
+headers <- fread("../rawdata/MainHeader.txt")
+itinerary <- fread("../rawdata/ItineraryPlaces.txt")
+headers$Qtr <- as.Date(as.yearqtr(headers$Qtr, "%Y %q"))
+alldata <- merge(headers, itinerary, by = "SurveyResponseID")
+alldata$adjustednights <- alldata$NoNights * alldata$PopulationWeight
+```
+
+```{r aggregatedata, echo=FALSE}
+aggregateddata <- alldata %>% group_by(Qtr,WhereStayed, Airport, SurveyResponseID) %>%
+                              summarise(totalnights = sum(adjustednights)) %>%
+                              summarise(allnights = sum(totalnights))
+```
+
+###Total Visitors to Lake Tekapo
+
+```{r graphtektotal, fig.height=3, echo=FALSE, warning=FALSE, message=FALSE, fig.width=7, fig.cap = "Total Visitor Nights in Lake Tekapo. The two major Christchurch earthquakes are marked by red lines."}
+plot1data <- aggregateddata %>% filter(WhereStayed == "Lake Tekapo") %>%
+                                group_by(Qtr) %>%
+                                summarise(totalnights = sum(allnights))
+ggplot(plot1data, aes(x = Qtr, y = totalnights)) +
+       geom_line(size = 1) +
+       xlab("Year") +
+       ylab("Visitor Nights") +
+       scale_y_continuous(labels = comma) +
+       geom_smooth(method = "lm") +
+       theme_economist() +
+       geom_vline(xintercept = as.numeric(as.Date("2010-09-04")), linetype = "longdash", col = "red") +
+       geom_vline(xintercept = as.numeric(as.Date("2011-02-22")), linetype = "longdash", col = "red")
+total1998 <- sum(plot1data$totalnights[plot1data$Qtr >= "1998-01-01" & plot1data$Qtr < "1999-01-01"])
+total2014 <- sum(plot1data$totalnights[plot1data$Qtr >= "2014-01-01" & plot1data$Qtr < "2015-01-01"])
+slopeoflm <- round(coef(lm(totalnights ~ Qtr, data = plot1data))[2]*365, -2)
+```
+
+The overall numbers of visitors arriving in Lake Tekapo is increasing. Figure 1 shows the total number of nights visitors have spent in Lake Tekapo for each quarter from 1997 to 2015. As can be seen, the overall trend is positive, increasing from a total of `r round(total1998, -2)` in 1998 to `r round(total2014, -2)` in 2014. The data show no long-term effect of the intial June or following  February earthquakes. The line of best fit to the data suggests that total visitor nights spent in Lake Tekapo is currently increasing by `r slopeoflm` per year. 
+
+\newpage
+
+###Airport of arrival of visitors to Lake Tekapo
+
+```{r tablebyairport, echo=FALSE, warning=FALSE, message=FALSE}
+plot2data <- aggregateddata %>% filter(WhereStayed=="Lake Tekapo") %>%
+                                group_by(Qtr, Airport) %>%
+                                summarise(totalnights = sum(allnights))
+plot2data$Qtr <- ifelse(plot2data$Qtr < "2010-08-01", "Pre Quakes",
+                        ifelse(plot2data$Qtr > "2011-01-06", "Post Quakes", NA))
+plot2data <- na.omit(plot2data)                    
+
+
+totable <- plot2data %>% group_by(Airport, Qtr) %>%
+                   summarise(total = mean(totalnights))
+totable<- rbind(totable, list("Queenstown", "Pre Quakes", NA)) %>%
+                arrange(Airport, Qtr)
+setnames(totable, c("Airport", "Qtr", "total"), c("Airport of Origin", "Timing", "Total Nights Stayed"))
+kable(totable, digits = c(0, 0, -2), align = c("l", "c", "r"), caption = "Average Nights Stayed in Lake Tekapo by Airport of Origin")
+```
+
+Table 1 breaks down the airport of arrival of visitors to Lake Tekapo both before and after the Earthquakes. Before the earthquakes, the number of visitors who arrived at Auckland and Christchurch was nearly tied, but after the numbers are slightly biased towards Auckland. It is important to point out that the numbers have both massively increased. The difference in averages is not statistically different and is largely due to a spike in visitors arriving in Auckland in the first part of 2013.
+
+
+
+
+###Lake Tekapo as a Success Story
+
+```{r proportionbytime, echo=FALSE, warning=FALSE, fig.height=3, fig.width=7, fig.cap = "Percentage of Total New Zealand Visitor Nights Spent in Lake Tekapo"}
+totalNZnights <- aggregateddata %>% group_by(Qtr) %>%
+                                    summarise(totalNZnights = sum(allnights))
+totaltekaponights <- aggregateddata %>% filter(WhereStayed == "Lake Tekapo") %>%
+                                        group_by(Qtr) %>%
+                                        summarise(totaltknights = sum(allnights))
+data3 <- merge(totalNZnights, totaltekaponights, by = "Qtr") 
+data3$percentnights <- data3$totaltknights / data3$totalNZnights * 100
+ggplot(data3, aes(x = Qtr, y = percentnights)) +
+       geom_line(size = 1) +
+       geom_smooth(method = "lm") +
+       xlab("Year") +
+       ylab("Percentage of Total Visitor Nights") +
+       theme_economist() +
+       geom_vline(xintercept = as.numeric(as.Date("2010-09-04")), linetype = "longdash", col = "red") +
+       geom_vline(xintercept = as.numeric(as.Date("2011-02-22")), linetype = "longdash", col = "red")
+mean1998 <- mean(data3$percentnights[data3$Qtr >= "1998-01-01" & data3$Qtr < "1999-01-01"])
+mean2014 <- mean(data3$percentnights[data3$Qtr >= "2014-01-01" & data3$Qtr < "2015-01-01"])
+```
+
+The numbers of visits from tourists in New Zealand has showed a small slowdown due to the financial crisis, but is currently increasing again. Lake Tekapo is taking advantage of this growth, and is currently growing faster than the national average (Figure 3), increasing its share of tourist nights spent from `r round(mean1998,2)`% in 1998 to `r round(mean2014,2)`% in 2014. 
+
+In summary Lake Tekapo is far from a crisis, it is growing its number of tourist nights at at rate of `r slopeoflm` nights per year, large numbers of tourists are coming from both Auckland and Christchurch airports, and `r round(mean2014,2)`% of total tourist nights are spent in Lake Tekapo
