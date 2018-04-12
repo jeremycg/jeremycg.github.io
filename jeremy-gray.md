@@ -6,10 +6,13 @@ permalink: /Jeremy-Gray/
 
 ![](/assets/Jeremy.jpg)
 
-Senior Data Scientist, at Precima Inc.
+Lead Educator, Data Science at [BrainStation](http://BrainStation.io).
 <jeremycgray@gmail.com>
 
-Currently I am working as a senior data Scientist, working on constructing tools
+Currently lead educator at BrainStation, where I am developing and presenting an intensive 10 week Data Science Bootcamp.
+The course content focuses on Python, SQL, Visualization and reproducible research. [Check it out]((http://BrainStation.io)!
+
+Previously I was working as a senior data Scientist at Precima, working on constructing tools
 for the members of our team. Primarily I am interested in creating and optimizing
 statistical modeling software and APIs, as well as migrating existing code into the
  amazon ecosystem.
