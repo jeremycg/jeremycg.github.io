@@ -4,13 +4,13 @@ title: Jeremy Gray
 permalink: /Jeremy-Gray/
 ---
 
-![](/assets/jeremy.jpg)
+![](/assets/jeremy.jpg | width=100)
 
 Lead Educator, Data Science at [BrainStation](http://BrainStation.io).
 <jeremycgray@gmail.com>
 
 Currently lead educator at BrainStation, where I am developing and presenting an intensive 10 week Data Science Bootcamp.
-The course content focuses on Python, SQL, Visualization, Machine Learning and reproducible research. [Check it out]((http://BrainStation.io)!
+The course content focuses on Python, SQL, Visualization, Machine Learning and reproducible research. [Check it out](http://BrainStation.io)!
 
 Previously I was working as a senior data Scientist at Precima, working on constructing tools
 for the members of our team. Primarily I am interested in creating and optimizing
