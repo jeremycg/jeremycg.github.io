@@ -4,7 +4,7 @@ title: Jeremy Gray
 permalink: /Jeremy-Gray/
 ---
 
-![](/assets/jeremy.jpg | width=100)
+![](/assets/jeremy.jpg)
 
 Lead Educator, Data Science at [BrainStation](http://BrainStation.io).
 <jeremycgray@gmail.com>
